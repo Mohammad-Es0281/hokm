@@ -6,6 +6,7 @@ import {
     MessageBody,
 } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
+import { forwardRef, Inject } from '@nestjs/common';
 import { RoomsService } from './rooms.service';
 import { GameService } from '../game/game.service';
 import { GameGateway } from '../game/game.gateway';
@@ -25,6 +26,7 @@ export class RoomsGateway {
     constructor(
         private roomsService: RoomsService,
         private gameService: GameService,
+        @Inject(forwardRef(() => GameGateway))
         private gameGateway: GameGateway,
     ) {}
 

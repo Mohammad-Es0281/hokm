@@ -6,9 +6,13 @@ import { Match } from '../game/entities/match.entity';
 import { Hand } from '../game/entities/hand.entity';
 import { Trick } from '../game/entities/trick.entity';
 import { PlayedCard } from '../game/entities/played-card.entity';
+import { AuthModule } from '../auth/auth.module';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([Match, Hand, Trick, PlayedCard])],
+    imports: [
+        TypeOrmModule.forFeature([Match, Hand, Trick, PlayedCard]),
+        AuthModule,
+    ],
     providers: [ReplayService],
     controllers: [ReplayController],
 })

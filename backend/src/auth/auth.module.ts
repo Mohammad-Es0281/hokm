@@ -1,19 +1,21 @@
-import { Module } from '@nestjs/common';
+import { Module, forwardRef } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
+import { TelegramAuthGuard } from './telegram-auth.guard';
 import { UsersModule } from '../users/users.module';
 
 @Module({
     imports: [
-        UsersModule,
+        forwardRef(() => UsersModule),
         JwtModule.register({
             secret: process.env.JWT_SECRET || 'your-secret-key',
             signOptions: { expiresIn: '30d' },
         }),
     ],
-    providers: [AuthService],
+    providers: [AuthService, TelegramAuthGuard],
     controllers: [AuthController],
-    exports: [AuthService],
+    exports: [AuthService, TelegramAuthGuard],
 })
+
 export class AuthModule {}

@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, forwardRef } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GameService } from './game.service';
 import { GameGateway } from './game.gateway';
@@ -27,6 +27,6 @@ import { UsersModule } from '../users/users.module';
         TrickService,
         ScoringService,
     ],
-    exports: [GameService, GameStateManager],
+    exports: [GameService, GameStateManager, GameGateway],
 })
 export class GameModule {}
