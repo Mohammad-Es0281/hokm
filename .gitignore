@@ -1,0 +1,94 @@
+# =========================
+# Global
+# =========================
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Editor settings
+.vscode/
+.idea/
+*.swp
+
+# =========================
+# Node.js (Backend & Frontend)
+# =========================
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dist / build outputs
+dist/
+build/
+.cache/
+.tmp/
+
+# =========================
+# Backend (NestJS)
+# =========================
+
+# TypeScript build output
+backend/dist/
+backend/node_modules/
+
+# Logs & misc
+backend/logs/
+backend/*.log
+
+# Local env
+backend/.env
+
+# =========================
+# Frontend (React + Vite)
+# =========================
+
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# Vite cache
+frontend/.vite/deps/
+
+# =========================
+# Docker
+# =========================
+
+# Ignore local volumes or overrides
+docker-data/
+*.pid
+
+# =========================
+# Others
+# =========================
+
+# Ignore coverage reports if using tests
+coverage/
+*.coverage
+
+# Ignore temporary scripts or files
+temp/
+*.tmp
+
+# Backup files
+*.bak
+*.orig
