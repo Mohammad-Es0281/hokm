@@ -1,0 +1,44 @@
+.hand {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(10, 14, 39, 0.95), transparent);
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+}
+
+.hand-cards {
+    display: flex;
+    direction: rtl;
+    position: relative;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 100px;
+}
+
+.hand-card {
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.hand-card:hover {
+    z-index: 1000 !important;
+}
+
+@media (max-width: 640px) {
+    .hand {
+        padding: 10px;
+    }
+
+    .hand-card {
+        transform: translateX(0) !important;
+    }
+
+    .hand-cards {
+        gap: 4px;
+        flex-wrap: wrap;
+    }
+}
