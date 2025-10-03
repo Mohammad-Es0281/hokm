@@ -39,7 +39,7 @@ export class GameService {
             playerIds,
             matchScore: this.initializeMatchScore(room.mode, playerIds),
             targetHands: room.targetHands,
-            teams: room.mode === GameMode.FOUR_PLAYER ? this.assignTeams(playerIds) : null,
+            teams: room.mode === GameMode.FOUR_PLAYER ? this.assignTeams(playerIds) : undefined,
             deckCommitment: '', // Will be set on first hand
         });
 
@@ -65,7 +65,7 @@ export class GameService {
             isCurrentTurn: false,
             timeRemaining: room.turnTimer,
             connected: true,
-            team: match.teams ? match.teams[id] : undefined,
+            team: match.teams?.[id],
         }));
 
         return {

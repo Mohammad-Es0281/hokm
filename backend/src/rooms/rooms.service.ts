@@ -26,7 +26,7 @@ export class RoomsService {
         targetHands?: number;
         isPrivate?: boolean;
     }): Promise<Room> {
-        const inviteCode = data.isPrivate ? this.generateInviteCode() : null;
+        const inviteCode = data.isPrivate ? this.generateInviteCode() : undefined;
 
         const room = this.roomsRepository.create({
             mode: data.mode,
@@ -127,7 +127,7 @@ export class RoomsService {
             : this.findNextAvailablePosition(usedPositions, room.mode);
 
         // Assign team for 4-player mode
-        const team = room.mode === GameMode.FOUR_PLAYER ? finalPosition % 2 : null;
+        const team = room.mode === GameMode.FOUR_PLAYER ? finalPosition % 2 : undefined;
 
         const roomPlayer = this.roomPlayersRepository.create({
             roomId: room.id,
@@ -137,7 +137,8 @@ export class RoomsService {
             status: PlayerStatus.ACTIVE,
         });
 
-        return this.roomPlayersRepository.save(roomPlayer);
+        await this.roomPlayersRepository.save(roomPlayer);
+        return roomPlayer;
     }
 
     /**

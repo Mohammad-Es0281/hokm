@@ -40,7 +40,7 @@ export class Room {
     isPrivate: boolean;
 
     @Column({ nullable: true })
-    inviteCode: string;
+    inviteCode?: string;
 
     @Column()
     createdBy: string;

@@ -27,7 +27,7 @@ export class Match {
     playerIds: string[];
 
     @Column('jsonb', { nullable: true })
-    teams: Record<string, number>; // playerId -> team (0 or 1)
+    teams?: Record<string, number>; // playerId -> team (0 or 1)
 
     @Column('jsonb')
     matchScore: Record<string, number>; // playerId or teamId -> hands won

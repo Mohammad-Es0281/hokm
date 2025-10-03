@@ -30,7 +30,7 @@ export class RoomPlayer {
     position: number; // 0, 1, 2, 3
 
     @Column({ nullable: true })
-    team: number; // 0 or 1 for 4-player mode
+    team?: number; // 0 or 1 for 4-player mode
 
     @Column({ nullable: true })
     socketId: string;
